@@ -39,12 +39,14 @@ const Register = () => {
   }
 
   return (
-    <div>
+    <div className="flex flex-col w-screen h-screen m-0 justify-center items-center">
+      <h2 className=" font-extrabold  text-4xl my-4">Welcome the App</h2>
       <div>
         <form onSubmit={(e) => handleSubmit(e)}>
           <label>
             Username:
             <input
+              className="bg-slate-400 rounded-lg"
               type="text"
               name="name"
               value={input.name}
@@ -55,6 +57,7 @@ const Register = () => {
           <label>
             Pass:
             <input
+              className="bg-slate-400 rounded-lg"
               type="password"
               name="password"
               value={input.password}
@@ -62,11 +65,22 @@ const Register = () => {
             />
           </label>
           <br />
-          <button type="submit">LOGIN</button>
+          <div className="w-full justify-center flex m-0 my-3">
+            <button
+              className=" text-center rounded-lg p-1 bg-slate-600 hover:bg-slate-400"
+              type="submit"
+            >
+              LOGIN
+            </button>
+          </div>
         </form>
         <br />
-        <div>
-          <Link to="/register">Register</Link>
+        <div className="w-full justify-center flex m-0">
+          <Link to="/register">
+            <p className="bg-slate-300 hover:bg-slate-400 rounded-lg">
+              Register
+            </p>
+          </Link>
         </div>
       </div>
     </div>

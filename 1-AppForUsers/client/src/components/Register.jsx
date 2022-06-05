@@ -53,12 +53,17 @@ const Register = () => {
   }
 
   return (
-    <div>
-      <div>
-        <form onSubmit={(e) => handleSubmit(e)}>
+    <div className="flex flex-col w-screen h-screen m-0 justify-center items-center">
+      <h2 className=" font-extrabold  text-4xl my-4">Register</h2>
+      <div className="flex flex-col m-0 justify-center items-center">
+        <form
+          className="flex flex-col m-0 justify-center items-center"
+          onSubmit={(e) => handleSubmit(e)}
+        >
           <label>
             Username:
             <input
+              className="bg-slate-400 rounded-lg"
               type="text"
               name="name"
               value={input.name}
@@ -67,18 +72,20 @@ const Register = () => {
           </label>
           <br />
           <div>
-            <label>
+            <label className="px-2">
               User:
               <input
+                className="bg-slate-400 rounded-lg "
                 type="radio"
                 name="check"
                 value="user"
                 onChange={(e) => handleCheck(e)}
               />
             </label>
-            <label>
+            <label className="px-2">
               Admin:
               <input
+                className="bg-slate-400 rounded-lg"
                 type="radio"
                 name="check"
                 value="admin"
@@ -90,6 +97,7 @@ const Register = () => {
           <label>
             Email:{" "}
             <input
+              className="bg-slate-400 rounded-lg"
               type="email"
               name="email"
               value={input.email}
@@ -100,6 +108,7 @@ const Register = () => {
           <label>
             Pass:
             <input
+              className="bg-slate-400 rounded-lg"
               type="password"
               name="password"
               value={input.password}

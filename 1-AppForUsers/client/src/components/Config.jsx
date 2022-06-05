@@ -85,13 +85,19 @@ export const Config = (props) => {
   }
 
   return (
-    <div>
-      <h3>Config user: {user.name}</h3>
-      <div>
-        <form onSubmit={(e) => handleSubmit(e)}>
+    <div className="flex flex-col w-screen h-screen m-0 justify-center items-center">
+      <h3 className=" font-extrabold  text-4xl my-4">
+        Config user: {user.name}
+      </h3>
+      <div className="flex flex-col m-0 justify-center items-center">
+        <form
+          className="flex flex-col m-0 justify-center items-center"
+          onSubmit={(e) => handleSubmit(e)}
+        >
           <label>
             Username:
             <input
+              className="bg-slate-400 rounded-lg"
               type="text"
               name="name"
               value={input.name}
@@ -103,6 +109,7 @@ export const Config = (props) => {
             <label>
               User:
               <input
+                className="bg-slate-400 rounded-lg"
                 type="radio"
                 name="check"
                 value="user"
@@ -112,6 +119,7 @@ export const Config = (props) => {
             <label>
               Admin:
               <input
+                className="bg-slate-400 rounded-lg"
                 type="radio"
                 name="check"
                 value="admin"
@@ -123,6 +131,7 @@ export const Config = (props) => {
           <label>
             Email:{" "}
             <input
+              className="bg-slate-400 rounded-lg"
               type="email"
               name="email"
               value={input.email}
@@ -133,6 +142,7 @@ export const Config = (props) => {
           <label>
             Pass:
             <input
+              className="bg-slate-400 rounded-lg"
               type="password"
               name="password"
               value={input.password}
@@ -140,14 +150,22 @@ export const Config = (props) => {
             />
           </label>
           <br />
-          <button type="submit">Edit</button>
+          <button
+            className=" bg-slate-500 hover:bg-slate-300 px-2 rounded-lg"
+            type="submit"
+          >
+            Edit
+          </button>
         </form>
       </div>
-      <div>
+      <div className="my-4 bg-red-500 hover:bg-red-300 rounded-lg">
         <button onClick={(e) => handleDelete(e)}>Delete</button>
       </div>
-      <div>
-        <Link to={`/user/${id}`}>Back</Link>
+      <div className="my-4 bg-slate-500 hover:bg-slate-300 rounded-lg">
+        <Link to={`/user/${id}`}>
+          {" "}
+          <p className="bg-transparent">Back</p>{" "}
+        </Link>
       </div>
     </div>
   );
