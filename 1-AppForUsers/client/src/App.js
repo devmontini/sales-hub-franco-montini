@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import User from "./components/User";
 import Login from "./components/Login";

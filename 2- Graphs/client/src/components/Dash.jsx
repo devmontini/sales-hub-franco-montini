@@ -53,45 +53,63 @@ const Dash = (props) => {
   }, [dispatch, km]);
 
   return (
-    <div>
-      <h2>Dash</h2>
-      <div>
-        <div>
-          <h4>Edit</h4>
-          {edit ? (
-            <form>
-              <div>{title}</div>
-              <span>
-                Name:
-                <input
-                  type="text"
-                  name="name"
-                  value={input.name}
-                  onChange={(e) => handleChange(e)}
-                />
-              </span>
-              <span>
-                Km:
-                <input
-                  type="text"
-                  name="km"
-                  value={input.km}
-                  onChange={(e) => handleChange(e)}
-                />
-              </span>
-              <button onClick={(e) => handleSubmit(e)}>Save</button>
-            </form>
-          ) : (
-            <h4>Edit KM</h4>
-          )}
+    <div className="flex flex-col w-screen h-screen">
+      <h2 className="bg-slate-200  text-center  font-bold text-4xl">
+        Dashboard
+      </h2>
+      <div className="flex flex-row w-full h-full p-11">
+        <div className=" w-96 bg-slate-200 m-0 flex flex-col">
+          <div className="bg-slate-200 w-full">
+            <h4 className="bg-slate-200  text-center text-2xl font-bold">
+              Edit
+            </h4>
+          </div>
+          <div className=" m-0 flex bg-slate-200 h-full justify-center items-center">
+            {edit ? (
+              <form className="flex flex-col m-0 justify-center">
+                <div className=" text-center my-4">{title}</div>
+                <span>
+                  Name:
+                  <input
+                    className=" bg-slate-400 rounded-lg"
+                    type="text"
+                    name="name"
+                    value={input.name}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </span>
+                <span>
+                  Km:
+                  <input
+                    className=" bg-slate-400 rounded-lg"
+                    type="text"
+                    name="km"
+                    value={input.km}
+                    onChange={(e) => handleChange(e)}
+                  />
+                </span>
+                <button
+                  className=" bg-slate-700 my-4 hover:bg-slate-500 rounded-lg"
+                  onClick={(e) => handleSubmit(e)}
+                >
+                  Save
+                </button>
+              </form>
+            ) : (
+              <h4 className="bg-slate-200  text-center  font-bold">Edit KM</h4>
+            )}
+          </div>
         </div>
-        <div>
+        <div className=" w-96 bg-slate-200 m-0 flex flex-col">
+          <h4 className="bg-slate-200  text-center  text-2xl font-bold">
+            Restaurants
+          </h4>
           <table>
             <thead>
               <tr>
                 <th></th>
-                <th>Name</th>
-                <th>Km</th>
+                <th className=" text-left">Name</th>
+                <th className=" text-left">Km</th>
                 <th></th>
               </tr>
             </thead>
@@ -100,45 +118,58 @@ const Dash = (props) => {
               <tbody>
                 {restos.map((el) => {
                   return (
-                    <tr key={el.id}>
+                    <tr className="mx-2 px-3 h-11" key={el.id}>
                       <td>
-                        <button onClick={() => handleClick2(el.id)}>
+                        <button
+                          className="p-1 bg-gray-600 rounded-lg"
+                          onClick={() => handleClick2(el.id)}
+                        >
                           Edit
                         </button>
                       </td>
                       <td>{el.name}</td>
                       <td>{el.km}</td>
                       <td>
-                        <button onClick={() => handleClick(el.id)}>Dist</button>
+                        <button
+                          className="p-1 bg-gray-600 rounded-lg"
+                          onClick={() => handleClick(el.id)}
+                        >
+                          Dist
+                        </button>
                       </td>
                     </tr>
                   );
                 })}
               </tbody>
             ) : (
-              <h2>No hay restos</h2>
+              <h2 className="bg-slate-200  text-center  font-bold">
+                No hay restos
+              </h2>
             )}
           </table>
         </div>
-        <div>
+        <div className=" w-96 bg-slate-200 m-0 flex flex-col">
+          <h4 className="bg-slate-200  text-center  text-2xl font-bold">
+            Distance
+          </h4>
           <table>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Km</th>
+                <th className="text-left">Name</th>
+                <th className="text-left">Km</th>
               </tr>
             </thead>
             {!loader ? (
               <tbody>
                 <tr>
-                  <td>Loading...</td>
+                  <td className="text-center">Loading...</td>
                 </tr>
               </tbody>
             ) : km.length !== 0 ? (
               <tbody>
                 {km.map((el) => {
                   return (
-                    <tr key={el.id}>
+                    <tr className="mx-2 px-3 h-11" key={el.id}>
                       <td>{el.name}</td>
                       {el.km === 0 ? <td>Unknown</td> : <td>{el.km}</td>}
                     </tr>
@@ -155,8 +186,12 @@ const Dash = (props) => {
           </table>
         </div>
       </div>
-      <div>
-        <Link to="/">BACK</Link>
+      <div className="w-full flex m-0 justify-center">
+        <Link to="/">
+          <p className="bg-slate-200 w-fit hover:bg-slate-600 text-center p-2 rounded-lg font-bold">
+            BACK
+          </p>{" "}
+        </Link>
       </div>
     </div>
   );

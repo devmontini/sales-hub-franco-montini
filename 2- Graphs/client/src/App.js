@@ -1,11 +1,10 @@
 import { Switch, Route } from "react-router-dom";
-import "./App.css";
 import Dash from "./components/Dash";
 import Home from "./components/Home";
 
 function App() {
   return (
-    <div className="App">
+    <div className=" w-screen h-screen m-0 flex">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/dash" component={Dash} />
